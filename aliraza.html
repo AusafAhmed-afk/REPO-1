@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Raza- CV</title>
+    <!-- Link to Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts (Using Lato like reference) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+       /* --- CSS Styles Start --- */
+/* Basic Reset & Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ECF0F1; /* Slightly off-white page background */
+    color: #333;
+    line-height: 1.6;
+}
+
+.resume-container {
+    display: flex;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #fff; /* White right column background */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Softer shadow */
+    min-height: calc(100vh - 80px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Left Column --- */
+.left-column {
+    width: 36%;
+    background-color: #F2F2F2; /* Light Grey solid background */
+    color: #555555; /* Default dark text for left column */
+    position: relative;
+    padding: 0; /* Reset padding */
+}
+
+/* Header Background - Diagonal Split */
+.profile-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 220px; /* Height for the diagonal background */
+    /* CORRECTED: Blue top-left, Grey bottom-right */
+    background: linear-gradient(135deg, #2980B9 50%, #F2F2F2 50%);
+    z-index: 1;
+}
+
+/* Profile Picture */
+.profile-pic-wrapper {
+    position: absolute;
+    top: 90px; /* Adjust to place bottom near header division */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; /* Above header background */
+}
+
+.profile-pic {
+    width: 140px;
+    height: 160px;
+    border-radius: 50%;
+    border: 6px solid #FFFFFF; /* White border */
+    display: block;
+    background-color: #ccc;
+    object-fit: cover;
+}
+
+/* Left Content Area Styling - Starts BELOW the profile pic */
+.left-content {
+    /* CORRECTED: Increased padding-top substantially */
+    padding: 255px 25px 30px 25px; /* Starts well below the image (approx bottom edge is 90+140+12 = 242px) */
+    position: relative;
+    z-index: 0; /* Below picture */
+}
+
+/* Name and Title - Positioned below image */
+.left-column h1 {
+    color: #2980B9; /* Blue */
+    text-align: center;
+    font-size: 1.9em;
+    margin-bottom: 5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.left-column .title {
+    color: #2C3E50; /* Darker Blue/Grey for Title */
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 30px; /* Space before About Me */
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.left-column h2 {
+    color: #2C3E50; /* Dark Desaturated Blue/Grey Heading */
+    font-size: 1.1em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #BDC3C7; /* Medium grey border */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+/* Ensure first heading (About Me) doesn't have extra top margin */
+.left-column .about-me h2 {
+     margin-top: 0;
+}
+
+
+.left-column section {
+    margin-bottom: 20px;
+}
+
+.left-column p, .left-column li {
+    font-size: 0.9em;
+    color: #555555; /* Default dark text */
+}
+
+.left-column ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.left-column li {
+    margin-bottom: 8px;
+}
+
+/* Skills Section */
+.skills ul { padding-left: 0; }
+.skills li { margin-bottom: 12px; }
+.skills span { display: block; margin-bottom: 5px; font-weight: 400; color: #333; } /* Darker skill name */
+.skill-bar {
+    background-color: #D5D8DC; /* Light grey background for bar */
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.skill-level {
+    background-color: #2980B9; /* Blue fill */
+    height: 100%;
+    border-radius: 3px;
+}
+
+/* Softwares / Languages Section */
+.softwares ul, .languages ul { padding-left: 0; list-style: none; }
+.softwares li::before, .languages li::before {
+    content: "•";
+    color: #2980B9; /* Blue bullet */
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.softwares li, .languages li { margin-bottom: 6px; padding-left: 1em; }
+.languages .lang-level {
+    font-style: italic;
+    color: #7F8C8D; /* Medium grey for level */
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+/* Contact Section */
+.contact ul { list-style: none; }
+.contact li { display: flex; align-items: center; margin-bottom: 10px; }
+.contact .icon {
+    color: #2980B9; /* Blue icon */
+    margin-right: 12px;
+    width: 18px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* Reference Section */
+.reference p {
+    font-style: italic;
+    color: #7F8C8D; /* Medium grey */
+    font-size: 0.85em;
+}
+
+
+/* --- Right Column --- */
+.right-column {
+    padding: 40px 35px;
+    width: 64%;
+    background-color: #fff; /* White background */
+}
+
+.right-column h2 {
+    color: #2C3E50; /* Dark Desaturated Blue/Grey heading */
+    font-size: 1.3em;
+    margin-bottom: 25px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #2980B9; /* Blue border */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.right-column section {
+    margin-bottom: 35px;
+}
+
+.entry {
+    display: flex;
+    margin-bottom: 25px;
+}
+.entry:last-child { margin-bottom: 0; }
+
+
+.timeframe {
+    width: 20%;
+    padding-right: 20px;
+    font-size: 0.85em;
+    color: #777777; /* Medium Grey for time */
+    font-weight: 600;
+    flex-shrink: 0;
+    text-align: left;
+    border-right: 1px solid #DDDDDD; /* Light Grey separator */
+    margin-right: 20px;
+    padding-top: 2px;
+}
+.timeframe p { line-height: 1.4; margin-bottom: 2px; }
+
+.details { width: 80%; }
+
+.details h3 {
+    font-size: 1.15em;
+    color: #333333; /* Dark Grey title */
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.details h4 {
+    font-size: 1em;
+    color: #2980B9; /* Blue company/institution */
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.details p {
+    font-size: 0.95em;
+    color: #555555; /* Slightly lighter dark grey for text */
+    margin-bottom: 5px;
+}
+
+/* Hobbies Section */
+.hobbies h2 { margin-bottom: 20px; }
+.hobby-list { display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; }
+.hobby-item { margin: 10px 15px; color: #555555; width: 80px; }
+.hobby-item i {
+    display: block;
+    font-size: 2.2em;
+    color: #2980B9; /* Blue icon */
+    margin-bottom: 8px;
+}
+.hobby-item span { font-size: 0.85em; font-weight: 600; }
+
+/* Placeholder image style */
+img.profile-pic[src="placeholder.png"] {
+  background-color: #BDC3C7; /* Placeholder color using light grey */
+  border: 6px solid #FFFFFF;
+}
+/* --- CSS Styles End --- */
+    </style>
+
+</head>
+<body>
+    <div class="resume-container">
+        <!-- Left Column -->
+        <div class="left-column">
+            <div class="profile-header">
+                <!-- Wrapper for the Picture -->
+                <div class="profile-pic-wrapper">
+                     <!-- IMPORTANT: Replace 'placeholder.png' with the actual path to Ali's image -->
+                     <img src="" alt="Ali Raza" class="profile-pic">
+                </div>
+            </div>
+
+            <div class="left-content">
+                <h1>Ali Raza</h1>
+                <p class="title">Student</p>
+
+                <section class="about-me">
+                    <h2>ABOUT ME</h2>
+                    <p>
+                       *About Me*  
+
+Driven, adaptable, and passionate about growth. Committed to excellence through innovation and teamwork.
+                    </p>
+                </section>
+
+                <section class="skills">
+                    <h2>SKILLS</h2>
+                    <ul>
+                        <li>
+                            <span>Communication Skills</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                        </li>
+                        <li>
+                            <span>Management skills</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
+                        </li>
+                        <li>
+                            <span>Problem solving</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 60%;"></div></div>
+                        </li>
+                         <li>
+                            <span>Time Management</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
+                        </li>
+                    </ul>
+                </section>
+
+                 <section class="softwares">
+                    <h2>TOOLS / TECHNOLOGIES</h2>
+                     <ul>
+                         <li>HTML, CSS, JavaScript</li>
+                         <li>PowerPoint</li>
+                         <li>Word</li>
+                         <li>Python </li>
+                     </ul>
+                </section>
+
+                 <section class="languages">
+                    <h2>LANGUAGES</h2>
+                     <ul>
+                         <li>English <span class="lang-level">(Advanced)</span></li>
+                         <li>Urdu <span class="lang-level">(Normal)</span></li>
+                         <li>Sindhi <span class="lang-level">(Native)</span></li>
+                     </ul>
+                </section>
+
+
+                <section class="contact">
+                    <h2>CONTACT</h2>
+                    <ul>
+                        <li><i class="fas fa-phone icon"></i> <span>03220084560</span></li>
+                        <li><i class="fas fa-envelope icon"></i> <span>razakhoso4099@gmail.com</span></li>
+                        <li><i class="fas fa-map-marker-alt icon"></i> <span>E-9 PSIT colony malirkarachi </span></li>
+                    </ul>
+                </section>
+
+                 <section class="reference">
+                     <h2>REFERENCE</h2>
+                     <p>Available upon request</p>
+                 </section>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <section class="work-experience">
+                <h2>WORK EXPERIENCE</h2>
+                 <div class="entry">
+                    <div class="timeframe">
+                        <p>Present</p> <!-- Simplified timeframe -->
+                    </div>
+                    <div class="details">
+                        <h3>Seeking First Opportunity</h3>
+                        <h4>N/A</h4> <!-- Placeholder for company/role type -->
+                        <p>Eager Software Engineering student actively looking for internships or entry-level roles to apply theoretical knowledge and gain practical experience.</p>
+                    </div>
+                </div>
+                <!-- Add actual experience here in future following the structure above -->
+            </section>
+
+            <section class="education">
+                <h2>EDUCATION</h2>
+                <div class="entry">
+                    <div class="timeframe">
+                       <p>2025</p>
+                       <p>Present</p>
+                    </div>
+                    <div class="details">
+                        <h3>Bachelors in Software Engineering</h3>
+                        <h4>IQRA UNIVERSITY</h4>
+                        <p>Currently in 6th Semester</p>
+                    </div>
+                </div>
+                 <div class="entry">
+                    <div class="timeframe">
+                        <p>2019</p>
+                        <p>2021</p>
+                    </div>
+                    <div class="details">
+                        <h3>Intermediate (Pre-engineering)</h3>
+                        <h4>Mehar Degree College</h4>
+                        <p>Achieved A Grade (74%)</p>
+                    </div>
+                </div>
+                 
+                   
+            </section>
+
+             <section class="hobbies">
+                 <h2>HOBBIES</h2>
+                 <div class="hobby-list">
+                     <div class="hobby-item">
+                         <i class="fas fa-basketball-ball"></i> <!-- Generic sports icon -->
+                         <span>Sports</span>
+                     </div>
+                     <div class="hobby-item">
+                         <i class="fas fa-laptop-code"></i>
+                         <span>Programming</span>
+                     </div>
+                     <div class="hobby-item">
+                          <i class="fas fa-book-open"></i>
+                          <span>Reading</span>
+                      </div>
+                     
+                     </div>
+                 </div>
+             </section>
+        </div>
+    </div>
+</body>
+</html>
